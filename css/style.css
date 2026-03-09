@@ -1,90 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-*{
+:root{ 
+
+    --blue8: rgb(0, 119, 181);
+    --other:rgb(165, 0, 54);
+    
+    --bs-primary: var(--blue8);
+    --bs-primary-rgb: 0, 119, 181;    
+
+    --bs-primary-bg-subtle: rgba(207, 226, 255, 0.75);
+    --bs-focus-ring-color: rgba(0, 119, 181, 0.25);
+    --bs-body-bg-color:rgba(173, 216, 230, 0.25);
+    --bs-btn-hover-bg: rgb(1, 86, 129);
+}
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body.other-theme {
+    --bs-primary: var(--other);
+    --bs-primary-rgb: 165, 0, 54;
+    --bs-primary-bg-subtle:rgba(252, 203, 219, 0.75);
+    --bs-focus-ring-color: rgba(165, 0, 54, 0.25);
+    --bs-body-bg-color: rgba(233, 177, 196, 0.25);
+    --bs-btn-hover-bg: rgb(129, 2, 44);
+}
+
+body {
+    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
+    background-color: var(--bs-body-bg-color);
+    transition: background-color 0.3s ease;
 }
 
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+.btn-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: var(--bs-primary);
+    --bs-btn-hover-border-color: var(--bs-btn-hover-bg);
 }
 
-.container{    
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 400px;
+.form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color);
 }
 
-.container .title{
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
 
-.input-field{
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.input-field input{
-    flex: 1;
-    outline: none;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-    font-size: 16px;
-}
-
-.input-field button{
-    padding: 10px 15px;
-    border: none;
-    background-color: #28a745;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-}
-
-.input-field button:hover{
-    background-color: #218838;
-}
-
-.error-message{
-    flex-basis: 100%;
-    color: red;
-    font-size: 13.5px;
-    margin-top: 5px;
-}
-
-#task-list{
-    list-style: none;
-}
-
-#task-list li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #cbc9c9;
-}
-
-#task-list li button{
-    padding: 8px 10px;
-    border: none;
-    background-color: #de5135;
-    color: #fff;
-    font-size: 12px;
-    cursor: pointer;
+#taskList {
+    font-size: 14.8px;
     border-radius: 5px;
+    padding-inline: 1rem;
+}
+
+#taskList li:not(:last-child) {
+    border-bottom: 1px solid #c4c2c2;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #7f7e7e;
 }

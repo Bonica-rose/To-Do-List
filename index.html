@@ -3,23 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List App</title>
+    <title>Simple To-Do App</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
-    <main>
-        <div class="container">
-            <h1 class="title">To-Do List</h1>
-            <div class="input-field">
-                <input type="text" id="task-input" placeholder="Add a new task...">
-                <button id="add-task-btn"><i class="fas fa-plus"></i></button>
-                <span id="task-error" class="error-message"></span>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-8">
+                <div class="card p-4 shadow mb-3">
+            
+                    <div class="d-flex justify-content-between mb-3">    
+                        <h3 class="text-primary">
+                            <i class="fa-solid fa-list-check"></i> Todo List
+                        </h3>
+            
+                        <button id="themeBtn" class="btn text-white bg-primary border-0">
+                            <i class="fa-solid fa-circle-half-stroke"></i>
+                        </button>    
+                    </div>
+            
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <input type="text" id="taskInput" class="form-control focus-ring" placeholder="Enter task" autocomplete="off">
+
+                            <button id="addTaskBtn" class="btn btn-primary">
+                                <i class="fa-solid fa-plus"></i> Add Task
+                            </button>
+                        </div>
+                        <span id="task-error" class="text-danger text-sm-start small"></span>
+                    </div>
+                    
+            
+                    <ul id="taskList" class="bg-primary-subtle"></ul>
+            
+                    <p id="emptyMsg" class="text-center text-muted mt-3">
+                        <i class="fa-solid fa-circle-info"></i>
+                        No tasks available
+                    </p>
+            
+                </div>
             </div>
-            <ul id="task-list"></ul>
         </div>
-    </main>
+    </div>
     
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
