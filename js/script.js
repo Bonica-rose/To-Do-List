@@ -28,7 +28,7 @@ const displayTasks = () => {
         li.className = "list-group-item d-flex justify-content-between align-items-center py-2";
         li.innerHTML=`
             <div class="px-2">
-                <input type="checkbox" ${task.completed ? "checked":""} onclick="toggleComplete(${index})">
+                <input class="form-check-input me-1" type="checkbox" ${task.completed ? "checked":""} onclick="toggleComplete(${index})">
                 <span class="${task.completed ? "completed":""}">${task.text}</span>
             </div>
             <div class="d-flex">
@@ -82,13 +82,10 @@ const toggleComplete = (index) => {
     displayTasks();
 }
 
-const deleteTask = (index) => {
-    let delLiChild = `#list-item-${index}`;
-    document.querySelector(delLiChild).remove();
-    taskInput.value = '';
-    tasks.splice(index,1);
-    if(tasks.length === 0){
-        emptyMsg.classList.remove('d-none');
-    }
+const deleteTask = (index) => {    
+    tasks.splice(index, 1);
+    editIndex = -1;
+    addTaskBtn.innerHTML = `<i class="fa-solid fa-plus"></i> Add Task`;
+    displayTasks()
 }
 
