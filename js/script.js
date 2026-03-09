@@ -13,7 +13,8 @@ themeBtn.addEventListener("click", () => {
 });
 
 const displayTasks = () => {
-    taskList.innerHTML="";
+    taskList.innerHTML = "";
+    taskInput.value = "";
 
     if(tasks.length === 0){
         emptyMsg.classList.remove('d-none');
@@ -43,6 +44,8 @@ const displayTasks = () => {
         taskList.appendChild(li);
     });
 }
+
+displayTasks()
 
 const addTask = () => {
     taskError.textContent = "";
